@@ -1,26 +1,9 @@
-# SONAR
-**Secret Orthogonal-subspace Nexus for Anchored Retrieval**
-
-<p align="center">
-  <img src="docs/figures/main_figure.png" alt="SONAR architecture overview" width="900">
-</p>
-
-📂 Dataset Preparation
-
-To reproduce the experiments, please download the required datasets (WebQA, MMQA, VizWiz) and organize them into the data/ directory. The project expects the following directory structure:
-
-SONAR/
+SONARSecret Orthogonal-subspace Nexus for Anchored Retrieval<p align="center"><img src="docs/figures/main_figure.png" alt="SONAR architecture overview" width="900"></p>📂 Dataset PreparationTo reproduce the experiments, please download the required datasets (WebQA, MMQA, VizWiz) and organize them into the data/ directory. The project expects the following directory structure:SONAR/
 └── data/
     ├── MMQA/          # MMQA dataset images and metadata
     ├── VizWiz/        # VizWiz dataset images (specifically for 'harmlessness' checks)
     └── WebQA/         # WebQA dataset images and metadata
-
-
-🏗️ Project Structure
-
-The repository is organized as follows:
-
-SONAR/
+🏗️ Project StructureThe repository is organized as follows:SONAR/
 ├── README.md                     # Project documentation and usage guide
 ├── requirements.txt              # Python dependencies (e.g., faiss, torch, clip)
 ├── LICENSE                       # License information
