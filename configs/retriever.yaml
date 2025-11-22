@@ -1,0 +1,23 @@
+model: "ViT-L-14"
+pretrained: "openai"
+embed_dim: 768
+batch_size: 64
+num_workers: 4
+limit: null
+faiss:
+  type: "IVF-PQ"       # "FLAT" or "IVF-PQ"
+  metric: "ip"       # "ip" or "l2"
+  nlist: 512        # used for IVF-PQ, 512 for VizWiz, 4096 for original
+  pq_m: 64           # used for IVF-PQ
+  nprobe: 32        # used at search time (IVF-PQ)
+topk: 10
+seed: 42
+device: "cuda"       # "cuda" or "cpu" for CLIP forward
+paths:
+  index_parquet: "~/SONAR/data/index.parquet"
+  embeds_npy: "~/SONAR/results/embeds.npy"
+  ids_json: "~/SONAR/results/ids.json"
+  faiss_index: "~/SONAR/results/faiss.index"
+  webqa:
+    tsv: "~/SONAR/data/WebQA/imgs.tsv"
+    lineidx: "~/SONAR/data/WebQA/imgs.lineidx"

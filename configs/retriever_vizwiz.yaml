@@ -1,0 +1,23 @@
+model: "ViT-L-14"
+pretrained: "openai"
+embed_dim: 768
+batch_size: 64
+num_workers: 4
+limit: null
+
+faiss:
+  type: "IVF-PQ"     
+  metric: "ip"       
+  nlist: 512
+  pq_m: 64
+  nprobe: 32        
+
+topk: 10
+seed: 1234          
+device: "cuda"
+
+paths:
+  index_parquet: "~/SONAR/data/index_vizwiz.parquet"     
+  embeds_npy:    "~/SONAR/results/embeds_vizwiz.npy"
+  ids_json:      "~/SONAR/results/ids_vizwiz.json"
+  faiss_index:   "~/SONAR/results/faiss_vizwiz_clean.index"
