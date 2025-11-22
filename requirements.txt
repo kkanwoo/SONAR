@@ -1,0 +1,15 @@
+clip==0.2.0
+lpips==0.1.4
+matplotlib==3.10.7
+numpy==2.3.5
+pandas==2.3.3
+Pillow==12.0.0
+protobuf==6.33.1
+psutil==7.1.0
+PyYAML==6.0.3
+scikit_learn==1.7.2
+scipy==1.16.3
+skimage==0.0
+torch==2.9.0
+torchvision==0.24.0
+tqdm==4.67.1
