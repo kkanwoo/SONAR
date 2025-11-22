@@ -1,19 +1,28 @@
-SONAR
-Secret Orthogonal-subspace Nexus for Anchored Retrieval
+# SONAR
+
+**Secret Orthogonal-subspace Nexus for Anchored Retrieval**
 <p align="center">
 <img src="docs/figures/main_figure.png" alt="SONAR architecture overview" width="900">
 </p>
-📂 Dataset Preparation
+
+## 📂 **Dataset Preparation**
+
 To reproduce the experiments, please download the required datasets (WebQA, MMQA, VizWiz) and organize them into the data/ directory. The project expects the following directory structure:
+
+```text
 SONAR/
 └── data/
     ├── MMQA/          # MMQA dataset images and metadata
+    │   └── images/
     ├── VizWiz/        # VizWiz dataset images (specifically for 'harmlessness' checks)
     └── WebQA/         # WebQA dataset images and metadata
+```
 
+## 🏗️ **Project Structure**
 
-🏗️ Project Structure
 The repository is organized as follows:
+
+```text
 SONAR/
 ├── README.md                     # Project documentation and usage guide
 ├── requirements.txt              # Python dependencies (e.g., faiss, torch, clip)
@@ -24,6 +33,7 @@ SONAR/
 │
 ├── data/                         # Dataset directory (WebQA, MMQA, VizWiz)
 │   ├── MMQA/
+│       └── images/
 │   ├── VizWiz/
 │   └── WebQA/
 │
@@ -45,22 +55,19 @@ SONAR/
 │
 └── scripts/                      # Shell scripts for running experiments
     └── run_webmmqa_experiment.sh # Example script for WebQA/MMQA experiments
+```
 
-
-🚀 Getting Started
-Prerequisites
-Python 3.8+
-PyTorch (CUDA supported)
-FAISS (GPU version recommended)
-Installation
-Clone the repository and install dependencies:
-git clone https://github.com/YOUR_USERNAME/SONAR.git
+## 🚀 Getting Started
+```bash
+git clone [https://github.com/kkanwoo/SONAR.git](https://github.com/kkanwoo/SONAR.git)
 cd SONAR
 pip install -r requirements.txt
+```
 
-
-🏃‍♂️ Usage
-You can run the full pipeline (Watermarking → Retrieval → Evaluation) using the provided script.
+## 🏃‍♂️ Usage
+Once you have finished downloading and organizing the data, you can run the full pipeline (Watermarking → Retrieval → Evaluation) using the provided script.
+```bash
 Note: Please set up your SECRET key in the script before running.
 chmod +x scripts/run_webmmqa_experiment.sh
 ./scripts/run_webmmqa_experiment.sh
+```
