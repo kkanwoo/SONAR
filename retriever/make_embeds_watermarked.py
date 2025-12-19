@@ -9,7 +9,7 @@ import open_clip
 import yaml
 import random
 
-SEED = 1234  # ★ 전역 시드 고정
+SEED = 1234  #
 
 def set_seeds(seed: int = SEED):
     random.seed(seed)
@@ -37,7 +37,7 @@ def load_cfg(p):
         return yaml.safe_load(f)
 
 def main():
-    set_seeds(SEED)  # ★ 시드 세팅
+    set_seeds(SEED)
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--ids", default="~/SONAR/results/ids.json")
@@ -52,13 +52,11 @@ def main():
     ap.add_argument("--config", required=False)
     args = ap.parse_args()
 
-    # config 먼저 반영
     if args.config:
         cfg = load_cfg(args.config)
         args.model = cfg.get("model", args.model)
         args.pretrained = cfg.get("pretrained", args.pretrained)
 
-    # 경로/데이터
     ids_path = Path(args.ids).expanduser()
     emb_path = Path(args.embeds).expanduser()
     meta_path = Path(args.meta).expanduser()
@@ -69,12 +67,10 @@ def main():
     ids = json.load(open(ids_path, "r"))
     id2row = {str(gid): i for i, gid in enumerate(ids)}
     X = np.load(emb_path).astype("float32")
-    assert X.shape[0] == len(ids), "embeds 행수와 ids 길이가 다릅니다."
+    assert X.shape[0] == len(ids), "embeds, ids mismatch"
 
-    # 모델 로드(설정 반영 후)
     encode_images = load_model(args.model, args.pretrained, args.device)
 
-    # 교체 대상 수집
     replace = {}
     with open(meta_path, "r", encoding="utf-8") as f:
         for line in f:
@@ -96,7 +92,6 @@ def main():
 
     print(f"[INFO] replace targets = {len(replace)}")
 
-    # 배치 인코딩/교체
     gids = list(replace.keys())
     B = args.batch
     replaced = 0
